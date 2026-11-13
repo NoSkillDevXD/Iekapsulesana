@@ -171,12 +171,73 @@ public class Augstskola {
 					break;
 					
 				case "Budžeta vietas":
-					
-					break;
-					
+				    String budzets = "Studenti budžeta vietās:\n"
+				            + "_".repeat(20) + "\n";
+
+				    int budzetaSkaits = 0;
+
+				    for(int i = 0; i < studentuMasivs.length; i++) {
+				        if(studentuMasivs[i] != null &&
+				                studentuMasivs[i].irValstsFin()) {
+
+				            budzets += studentuMasivs[i].dabutVards() + " "
+				                    + studentuMasivs[i].dabutUzvards()
+				                    + "\nStudiju programma: "
+				                    + studentuMasivs[i].dabutStudProg()
+				                    + "\nKurss: "
+				                    + studentuMasivs[i].dabutKurss()
+				                    + "\nApliecības Nr.: "
+				                    + studentuMasivs[i].dabutAplNr()
+				                    + "\n" + "_".repeat(20) + "\n";
+
+				            budzetaSkaits++;
+				        }
+				    }
+
+				    budzets += "\nKopā budžeta studenti: " + budzetaSkaits;
+
+				    JTextArea budzetaTa = new JTextArea(budzets, 10, 40);
+				    budzetaTa.setEditable(false);
+				    JScrollPane budzetaSp = new JScrollPane(budzetaTa);
+
+				    JOptionPane.showMessageDialog(null, budzetaSp,
+				            "Budžeta vietas", JOptionPane.INFORMATION_MESSAGE);
+				    break;
+
+
 				case "Stipendijas":
-					
-					break;
+				    String stipendija = "Studenti, kuri saņem stipendiju:\n"
+				            + "_".repeat(20) + "\n";
+
+				    int stipendijuSkaits = 0;
+
+				    for(int i = 0; i < studentuMasivs.length; i++) {
+				        if(studentuMasivs[i] != null &&
+				                studentuMasivs[i].irSanemStip()) {
+
+				            stipendija += studentuMasivs[i].dabutVards() + " "
+				                    + studentuMasivs[i].dabutUzvards()
+				                    + "\nStudiju programma: "
+				                    + studentuMasivs[i].dabutStudProg()
+				                    + "\nKurss: "
+				                    + studentuMasivs[i].dabutKurss()
+				                    + "\nApliecības Nr.: "
+				                    + studentuMasivs[i].dabutAplNr()
+				                    + "\n" + "_".repeat(20) + "\n";
+
+				            stipendijuSkaits++;
+				        }
+				    }
+
+				    stipendija += "\nKopā stipendiju saņēmēji: " + stipendijuSkaits;
+
+				    JTextArea stipendijuTa = new JTextArea(stipendija, 10, 40);
+				    stipendijuTa.setEditable(false);
+				    JScrollPane stipendijuSp = new JScrollPane(stipendijuTa);
+
+				    JOptionPane.showMessageDialog(null, stipendijuSp,
+				            "Stipendijas", JOptionPane.INFORMATION_MESSAGE);
+				    break;
 				
 				case "Aizvērt programmu":
 					JOptionPane.showMessageDialog(null, "Programma tika apturēta!",
